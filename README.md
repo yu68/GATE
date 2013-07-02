@@ -1,8 +1,8 @@
-GATE
+[GATE](http://systemsbio.ucsd.edu/GATE/)
 ====
 
 ### Genomic Annotation from Time-course Epigenomic data 
-
+---
 #### 1. Preprocessing of time-series data
 
 Use the script "Preprocessing\_selectRegion.py"  
