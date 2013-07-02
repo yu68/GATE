@@ -5,9 +5,10 @@ GATE
 
 #### 1. Preprocessing of time-series data
 
-Use the script "Preprocessing\_selectRegion.py"
+Use the script "Preprocessing\_selectRegion.py"  
+__Please add bed files into the sub-folder "bed_file" before running this script.__  
 
-  help:
+  Help:
 ```
 usage: Preprocessing_selectRegion.py [-h] [-i INFO_BED] [-g GENOME]
                                      [-p PARAMETERS [PARAMETERS ...]]
@@ -35,7 +36,7 @@ optional arguments:
                         output txt file
 None
 ```
-The files in folder "/bed_file/" should be the ones with names in the third column of "bed_info.txt".
+The BED files in folder "/bed_file/" should be the ones with names in the third column of "bed_info.txt".  
 The output file of this script can be the [input for GATE software](http://systemsbio.ucsd.edu/GATE/Input.htm).
 
 #### 2. Run your data using GATE model
