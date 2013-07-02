@@ -1,9 +1,9 @@
 GATE
 ====
 
-## Genomic Annotation from Time-course Epigenomic data 
+### Genomic Annotation from Time-course Epigenomic data 
 
-### 1. Preprocessing of time-series data
+#### 1. Preprocessing of time-series data
 
 Use the script "Preprocessing\_selectRegion.py"
 
@@ -36,4 +36,7 @@ optional arguments:
 None
 ```
 The files in folder "/bed_file/" should be the ones with names in the third column of "bed_info.txt".
+The output file of this script can be the [input for GATE software]|(http://systemsbio.ucsd.edu/GATE/Input.htm).
 
+#### 2. Run your data using GATE model
+Use the output of step 1 as input file and run the program following [the steps here]|(http://systemsbio.ucsd.edu/GATE/Usage.htm).
