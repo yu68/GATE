@@ -1,0 +1,12 @@
+d0	H3K36me3	mouse_H3K36me3_d0_extend_sort.bed
+d4	H3K36me3	mouse_H3K36me3_d4_extend_sort.bed
+d6	H3K36me3	mouse_H3K36me3_d6_extend_sort.bed
+d0	H3K4me1	mouse_H3K4me1_d0_extend_sort.bed
+d4	H3K4me1	mouse_H3K4me1_d4_extend_sort.bed
+d6	H3K4me1	mouse_H3K4me1_d6_extend_sort.bed
+d0	H3K4me2	mouse_H3K4me2_d0_extend_sort.bed
+d4	H3K4me2	mouse_H3K4me2_d4_extend_sort.bed
+d6	H3K4me2	mouse_H3K4me2_d6_extend_sort.bed
+d0	H3K4me3	mouse_H3K4me3_d0_extend_sort.bed
+d4	H3K4me3	mouse_H3K4me3_d4_extend_sort.bed
+d6	H3K4me3	mouse_H3K4me3_d6_extend_sort.bed
