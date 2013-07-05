@@ -6,7 +6,7 @@
 #### 1. Preprocessing of time-series data
 
 Use the script "Preprocessing\_selectRegion.py"  
-__Please add bed files into the sub-folder "bed_file" before running this script.__  
+__Please add bed files into the sub-folder "bed_file" and edit "bed_info.txt" before running this script.__  
 
   Help:
 ```
