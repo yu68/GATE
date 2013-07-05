@@ -1,5 +1,6 @@
 ### compile source code
 
+require [Rtools](http://cran.r-project.org/bin/windows/Rtools/)
 #### 1. Windows
 use compile.bat
 
