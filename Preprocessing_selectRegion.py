@@ -112,12 +112,13 @@ def main():
                 exist=0
                 for t,time in enumerate(time_list):
                     key=(time,mark)
-                    norm_count=float(counts[key][c][i])*1E8/read_num[key]
+                    norm_count=float(counts[key][c][i])*normalize/read_num[key]
                     count_list[t*len(mark_list)+m]=norm_count
-                    if norm_count>=5: exist=1
+                    if norm_count>=cutoff: exist=1
                 exist_mark_num+=exist
                 if exist_mark_num-(m+1)<mark_num-len(mark_list): break
-            if exist_mark_num>=mark_num:
+            if (exist_mark_num>=mark_num) and (sum(count_list)/len(count_list)<600): 
+                # 600 to avoid extremely high value for all marks
                 print >>output,c+"\t%d\t%d\t"%(i*binsize+1,(i+1)*binsize)+"\t".join('%.4f'%f for f in count_list)
     output.close()
 
