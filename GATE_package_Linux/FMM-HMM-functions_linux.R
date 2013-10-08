@@ -3,7 +3,11 @@ Inputdata<-function(name,nmark,ntime)
   data=read.table(name,sep='\t',header=T)
   location=data[,1:3]
   colnames(location)=c("chr","start","end")
-  data=10*log(data[,4:dim(data)[2]]+1)
+  average = mean(as.matrix(log(data[,4:dim(data)[2]]+1)))
+  constant=floor(10/average)
+  cat ("\n Average log-value for all data is:",average)
+  cat ("\n Transform data using 'constant * log (x+1)', here constant is: ",constant,"\n\n")
+  data=constant*log(data[,4:dim(data)[2]]+1)
   data=floor(data)
   observation=array(0,c(dim(data)[1],ntime,nmark))
   for (i in 1:nmark) { for (j in 1:ntime) {observation[,j,i]=data[,(nmark*j-nmark+i)] } }

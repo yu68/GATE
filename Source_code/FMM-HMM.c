@@ -75,7 +75,7 @@ void backward(double *back, double *b, double *lambda, double *observation, long
 	    {
 		 back[w+(k-1)*nregion+nregion*ncluster*2*(ntime-1)] = 1;
 		 back[w+(k-1)*nregion+nregion*ncluster+nregion*ncluster*2*(ntime-1)] = 1;
-		 for(t = ntime-1; t >= 1; t--)
+		 for(t = (ntime-1); t >= 1; t--)
 		    {
 			 back[w+(k-1)*nregion+nregion*ncluster*2*(t-1)] = back[w+(k-1)*nregion+nregion*ncluster*2*t]*b[k]*emission(observation, lambda, nstate, nmarker, ntime, nregion, ncluster, k, w, 0, t+1)+
 			 back[w+(k-1)*nregion+nregion*ncluster+nregion*ncluster*2*t]*b[k+ncluster*2]*emission(observation, lambda, nstate, nmarker, ntime, nregion, ncluster, k, w, 1, t+1);
@@ -250,7 +250,7 @@ long ncluster, long nmarker, long ntime, long nregion, long *H)
 	    {
 		 for(j=1; j<=2; j++)
 		    {
-			 for(t=1; t<=ntime-1; t++)
+			 for(t=1; t<=(ntime-1); t++)
 			    {
 				 temp = LARGENUM*forwar[w+(k-1)*nregion+(i-1)*nregion*ncluster+(t-1)*nregion*ncluster*2]*b[k+(i-1)*ncluster+(j-1)*ncluster*2]*backwar[w+(k-1)*nregion+(j-1)*nregion*ncluster+t*nregion*ncluster*2]*
 				        emission(observation, lambda, nstate, nmarker, ntime, nregion, ncluster,k,w,j-1,t+1)/p_obser_w;
@@ -406,7 +406,7 @@ int32_t *maxiteration, int32_t *stop, int32_t *nstep, double *ndistance, int32_t
     {
         for(j=1; j<=ncluster_c; j++)
 		   {
-		    probability_c[i][j] = probability[i+(j-1)*nregion_c];
+		    probability_c[i][j] = probability[i-1+(j-1)*nregion_c];
 			probability_temp[i][j] = probability_c[i][j];
 		   }
     }
@@ -470,11 +470,11 @@ int32_t *maxiteration, int32_t *stop, int32_t *nstep, double *ndistance, int32_t
 	 log_likeli_r[i-1]=log_likelihood(nregion_c, ncluster_c, ntime_c, cluster_c, pie_c, forwar_c);
 	 n++;
 
-	 Rprintf("%d, %lf, %lf, %d \n", i, d, d_lambda, n);
+	 Rprintf("Total steps: %d, steps in current iteration: %d. \nDistance between trans-matrix: %lf, Distance between emission-matrix: %lf. \n", i, n, d, d_lambda);
 	 for(j=1; j<=ncluster_c; j++)
 	 {
-	    Rprintf("%lf \n", b_c[j+2*ncluster_c]);
-		Rprintf("%lf \n", pie_c[j]);
+	    Rprintf("  Cluster %d \tP(0->1): %lf \t", j, b_c[j+2*ncluster_c]);
+		Rprintf("pie: %lf \n", pie_c[j]);
 	 }
 	 if((n==nstep_c)||(d<ndistance_c))
 	   {
@@ -482,7 +482,7 @@ int32_t *maxiteration, int32_t *stop, int32_t *nstep, double *ndistance, int32_t
 		cluster_matrix(nregion_c, ncluster_c, ntime_c, cluster_c, pie_c, forwar_c, probability_c);
 	    d_p = mEdistance(probability_c, probability_temp, nregion_c, ncluster_c);
 		copy_matrix(probability_temp, probability_c, nregion_c, ncluster_c);
-		Rprintf("difference of p is: %lf \n",d_p);
+		Rprintf("New iteration. difference of p is: %lf \n",d_p);
 		if (d_p<0.0001)
 		  {break;}
 		n = 0;
@@ -506,7 +506,7 @@ for(i=1; i<= nregion_c; i++)
     {
         for(j=1; j<=ncluster_c; j++)
 		   {
-		     probability[i+(j-1)*nregion_c] = probability_c[i][j];
+		     probability[i-1+(j-1)*nregion_c] = probability_c[i][j];
 		   }
     }
 
