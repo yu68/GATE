@@ -1,4 +1,4 @@
-[GATE](http://systemsbio.ucsd.edu/GATE/)
+[GATE](http://yu68.github.io/GATE/)
 ====
 
 ### Genomic Annotation from Time-course Epigenomic data 
