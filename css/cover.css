@@ -10,16 +10,17 @@ a:hover {
 }
 
 /* Custom default button */
-.btn-default,
-.btn-default:hover {
-  opacity: 0.6;
-}
-.btn-default:focus {
+.btn-default {
   color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
-  opacity: 1.0;
+  opacity: 0.6;
   background-color: #fff;
   border: 1px solid #fff;
+}
+.btn-default:hover {
+  opacity: 1.0;
+}
+.btn-default:focus {
 }
 
 
