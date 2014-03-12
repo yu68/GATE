@@ -11,7 +11,9 @@ a:hover {
 
 /* Custom default button */
 .btn-default,
-.btn-default:hover,
+.btn-default:hover {
+  opacity: 1.0;
+}
 .btn-default:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
