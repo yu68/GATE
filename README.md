@@ -41,3 +41,13 @@ The output file of this script can be the [input for GATE software](http://syste
 
 #### 2. Run your data using GATE model
 Use the output of step 1 as input file and run the program following [the steps here](http://systemsbio.ucsd.edu/GATE/Usage.htm).
+
+
+
+## FAQ
+
+*  In the [Preprocessing_selectRegion.py](https://github.com/yu68/GATE/blob/master/Preprocessing_selectRegion.py), one of the module xplib.Annotation is missing.
+
+Answer: xplib is from the BAM2X tools developed by my previous lab mate [Xiaopeng Zhu](https://github.com/nimezhu). I have a forked version of BAM2X here: [https://github.com/yu68/bam2x](https://github.com/yu68/bam2x).  
+You can clone this bam2x repository and then add "/the_folder_you_put_bam2x/lib/" to your python path.
+
